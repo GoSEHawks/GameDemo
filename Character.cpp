@@ -3,9 +3,9 @@
 Character::Character(const char* spritePath, int screenWidth, int screenHeight)
 {
     sprite = LoadTexture(spritePath);
-    position = { static_cast<float>(screenWidth) / 4, static_cast<float>(screenHeight) / 4};
+    position = { static_cast<float>(screenWidth) / 2, static_cast<float>(screenHeight) / 2 };
     speed = 5;
-    scale = 1.0f;
+    scale = 2.0f; // Initial scale factor
 }
 
 Character::~Character()
@@ -23,9 +23,10 @@ void Character::Update()
         position.x -= speed;
     if (IsKeyDown(KEY_D))
         position.x += speed;
+    
 }
 
 void Character::Draw()
 {
-    DrawTexture(sprite, static_cast<int>(position.x), static_cast<int>(position.y), WHITE);
+    DrawTextureEx(sprite, position, 0.0f, scale, WHITE);
 }
