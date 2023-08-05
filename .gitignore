@@ -2,4 +2,4 @@
 *.dsym
 main
 .pre-commit-config.yaml
-.secrets.baseline
+secrets.env
